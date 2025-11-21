@@ -169,5 +169,3 @@ For major changes, please open an issue to discuss the proposal first.
 ## 📄 License
 
 MIT License
-
-```
