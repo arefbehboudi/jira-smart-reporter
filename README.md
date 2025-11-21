@@ -111,18 +111,49 @@ python generate_report.py --no-slides
 
 ```
 jira-insight-deck/
-├── src/
-│   ├── jira_client.py        # Jira API integration
-│   ├── analyzer.py           # Analysis engine
-│   ├── summarizer.py         # LLM summary generator
-│   ├── slide_builder.py      # PowerPoint builder
-│   ├── config.py             # Settings
-│   └── utils/                # Helpers
 │
-├── generate_report.py        # Entry point
-├── requirements.txt
-├── README.md
-└── example-output/           # Sample results
+├── src/
+│   ├── core/                          # Core logic of the reporting engine
+│   │   ├── jira_client.py             # Handles communication with Jira API (fetch issues, sprints, epics)
+│   │   ├── analyzer.py                # Data analysis: grouping, progress calculation, blockers, metrics
+│   │   ├── summarizer.py              # LLM-based summary generation (executive-level insights)
+│   │   ├── slide_builder.py           # Builds PowerPoint slides using python-pptx
+│   │   └── report_generator.py        # Orchestrates the full pipeline (fetch → analyze → summarize → slides)
+│   │
+│   ├── models/                        # Pydantic data models
+│   │   ├── issue.py                   # Issue model
+│   │   ├── epic.py                    # Epic model
+│   │   ├── summary.py                 # Summary/insight output model
+│   │   └── config_model.py            # Environment & config schema
+│   │
+│   ├── utils/                         # Utility helpers
+│   │   ├── logger.py                  # Project-wide logging
+│   │   ├── formatter.py               # Formatting helpers for text/markdown
+│   │   └── file_utils.py              # File handling utilities
+│   │
+│   ├── config.py                      # Loads and manages .env and settings
+│   └── constants.py                   # Constants used throughout the project
+│
+├── templates/                         # Templates for reports & prompts
+│   ├── slides/
+│   │   └── default_template.pptx      # Base PowerPoint template
+│   ├── prompts/
+│   │   └── summary_prompt.txt         # LLM prompt for executive summary
+│   └── html/
+│       └── report_template.html       # Optional HTML dashboard template
+│
+├── example-output/                    # Example outputs for users
+│   ├── sample-report.pptx
+│   └── sample-summary.txt
+│
+├── tests/                             # Unit and integration tests
+│
+├── generate_report.py                 # CLI entry point to generate full report
+├── requirements.txt                   # Python dependencies
+├── .env.example                       # Example environment variables
+├── .gitignore
+└── README.md
+
 ```
 
 ---
