@@ -1,7 +1,7 @@
 # 📊 Smart Reporter
 ### _AI-powered automated reporting & slide generation_
 
-Insight Deck is an intelligent automation tool that reads data, analyzes it, and automatically generates **executive-ready reports** and **PowerPoint slides**.
+Smart Reporter is an intelligent automation tool that reads data, analyzes it, and automatically generates **executive-ready reports** and **PowerPoint slides**.
 
 No more manual status reporting.  
 No more stitching issues into slides.  
